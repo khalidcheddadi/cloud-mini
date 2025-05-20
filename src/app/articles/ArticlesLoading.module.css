@@ -1,0 +1,76 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1.25rem;
+  min-height: 100vh;
+}
+
+.searchBar {
+  margin: 1.25rem auto;
+  width: 100%;
+  max-width: 66%;
+  height: 3.5rem;
+  background-color: #d1d5dbce; /* Tailwind bg-gray-300 */
+  border-radius: 0.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0.75rem;
+  background-color: #f5f5f5; /* Tailwind bg-gray-200 */
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.cardContent {
+  padding: 1.25rem;
+}
+
+.title {
+  height: 1.5rem;
+  background-color: #d7d9dc;
+  border-radius: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.summary {
+  height: 2.5rem;
+  background-color: #d1d5dbf0;
+  border-radius: 0.25rem;
+}
+
+.readMore {
+    width: 90px;
+  height: 2rem;
+  background-color: #9ca3afd6; /* Tailwind bg-gray-400 */
+  margin: 0 1.25rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.pagination {
+  margin: 2rem auto 2.5rem;
+  width: 21rem;
+  height: 2.25rem;
+  background-color: #d1d5dbd7;
+  border-radius: 0.25rem;
+}

@@ -1,0 +1,66 @@
+.commentItem {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px 24px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 5px solid #4f46e5; /* لون مميز */
+}
+
+.commentItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.commentContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.commentUser {
+  font-weight: bold;
+  color: #4f46e5; /* لون المستخدم */
+}
+
+.commentDate {
+  font-style: italic;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.commentText {
+  font-size: 16px;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.commentActions {
+  display: flex;
+  gap: 10px;
+}
+
+.commentActions button {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.commentActions button:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+}

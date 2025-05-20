@@ -1,0 +1,60 @@
+/* AdminSidebar.module.css */
+
+/* الحاوية الخارجية للـ Sidebar */
+.sidebar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a202c; /* اللون الرمادي الداكن */
+  color: white;
+}
+
+/* رأس الـ Sidebar */
+.sidebar-header {
+  padding: 1rem;
+  background-color: #2d3748; /* لون خلفية الرأس */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* شريط التنقل */
+.sidebar-nav {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+/* عناصر القائمة */
+.sidebar-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin: 1rem 0;
+}
+
+/* الروابط */
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+/* التغيير عند تمرير الماوس */
+.sidebar-nav a:hover {
+  background-color: #4a5568; /* لون خلفية عند التمرير */
+}
+
+/* الأيقونات */
+.sidebar-nav a svg {
+  margin-right: 0.5rem;
+}
