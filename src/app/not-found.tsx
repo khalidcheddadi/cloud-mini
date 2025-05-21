@@ -1,34 +1,29 @@
 import Link from "next/link";
-import styles from './NotFoundPage.module.css';
+import { FaArrowRight } from "react-icons/fa";
 
 const NotFoundPage = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800 p-4">
-      
-      <div className="text-center max-w-md mx-auto">
-        <div className="mb-8">
-          <h1 className="text-9xl font-bold text-indigo-600 mb-4">404</h1>
-          <h2 className="text-3xl font-semibold mb-4">الصفحة غير موجودة</h2>
-          <p className="text-lg text-gray-600 mb-6">
-            عذراً، لا يمكننا العثور على الصفحة التي تبحث عنها.
-          </p>
-        </div>
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-[#f0f4ff] to-[#e0e7ff] p-6">
+      <div className="bg-white/80 backdrop-blur-md shadow-xl rounded-3xl p-10 max-w-lg w-full text-center border border-gray-200 animate-fade-in" dir="rtl">
+        <h1 className="text-8xl font-extrabold text-indigo-600 mb-4">404</h1>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">الصفحة غير موجودة</h2>
+        <p className="text-gray-600 mb-6 text-base md:text-lg">
+          عذراً، لا يمكننا العثور على الصفحة التي تبحث عنها. ربما تم نقلها أو حذفها.
+        </p>
 
-        <Link 
-          href="/" 
-          className={`inline-block px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-md
-             hover:bg-indigo-700 transition duration-300 hover:shadow-lg
-              transform hover:-translate-y-1 ${styles.button}`}
-        >
-          العودة إلى الصفحة الرئيسية
+        <Link href="/" passHref>
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer">
+            العودة للصفحة الرئيسية
+            <FaArrowRight className="text-sm" />
+          </div>
         </Link>
-        
-        <div className="mt-12 text-sm text-gray-500">
-          <p>إذا كنت تعتقد أن هذا خطأ، يرجى التواصل مع الدعم الفني.</p>
-        </div>
+
+        <p className="text-sm text-gray-400 mt-8">
+          إذا استمرت المشكلة، يرجى التواصل مع الدعم الفني.
+        </p>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default NotFoundPage;

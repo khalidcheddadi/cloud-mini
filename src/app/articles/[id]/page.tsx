@@ -1,11 +1,13 @@
 import styles from "./article.module.css"; // تأكد من صحة المسار
 import AddCommentForm from "@/components/comments/AddCommentForm";
 import CommentItem from "@/components/comments/CommentItem";
-import { getSingleArticle } from "@/apiCalls/ArticleApiCall";
+// import { getSingleArticle } from "@/apiCalls/ArticleApiCall";
 import { SingleArticle } from "@/utils/types";
 import { cookies } from "next/headers";
 import { verifyTokenForPage } from "@/utils/verifyToken";
 import Link from "next/link";
+import { prisma } from "@/utils/DB";
+import { redirect } from "next/navigation";
 
 interface ArticleIdProps {
   params: { id: string };
@@ -15,8 +17,30 @@ interface ArticleIdProps {
 export default async function singleArticlePage({ params }: ArticleIdProps) {
   const token = (await cookies()).get("jwtToken")?.value || "";
   const payload = verifyTokenForPage(token);
-  const article: SingleArticle = await getSingleArticle(params.id);
 
+  // const article: SingleArticle = await getSingleArticle(params.id);
+
+  const article = await prisma.article.findUnique({
+              where: { id: parseInt(params.id) },
+              include: {
+                  comments: {
+                      include: {
+                          user: {
+                              select: {
+                                  username: true,
+                              }
+                          }
+                      },
+                      orderBy: {
+                          createdAt: 'desc'
+                      }
+                  }
+              }
+          }) as SingleArticle;
+
+          if(!article){
+            redirect("/not-found");
+          }
   return (
   <>
     <section className={styles.page}>

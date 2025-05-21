@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { Comment } from "@/generated/prisma/client";
 import DeleteCommentButton from "./DeleteCommentButton";
 import { cookies } from "next/headers";
-import { verifyTokenForPage } from "@/utils/verifyToken";
 import { getAllComments } from "@/apiCalls/adminApiCall";
 
 
@@ -14,10 +13,7 @@ const AdminCommentsTable = async () => {
     if(!token){
       redirect("/");
     }
-    const payload = verifyTokenForPage(token);
-    if(payload?.isAdmin === false){
-      redirect("/");
-    } 
+
 
   const comments: Comment[] = await getAllComments(token);
 

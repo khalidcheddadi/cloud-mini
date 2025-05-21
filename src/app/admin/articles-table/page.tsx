@@ -1,7 +1,4 @@
 
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
-import { verifyTokenForPage } from "@/utils/verifyToken";
 import { Article } from "@/generated/prisma/client";
 import { getArticles } from "@/apiCalls/ArticleApiCall";
 import { ARTICLE_PER_PAGE } from "@/utils/constants";
@@ -16,14 +13,6 @@ interface AdminArticlesTableProps {
   searchParams: {pageNumber: string};
 }
 const AdminArticlesTable = async ({ searchParams: {pageNumber} }: AdminArticlesTableProps) => {
-    const token = (await cookies()).get("jwtToken")?.value || "";
-    if(!token){
-      redirect("/");
-    }
-    const payload = verifyTokenForPage(token);
-    if(payload?.isAdmin === false){
-      redirect("/");
-    } 
 
     const articles: Article[] = await getArticles(pageNumber);
     const count: number = await prisma.article.count();
